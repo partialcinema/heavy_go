@@ -1,6 +1,4 @@
-IrregularPolygon = require './items/irregular-polygon'
-ChainLink = require './items/chain-link'
-Grass = require './items/grass'
+Feather = require './items/feather'
 motion = require './motion'
 periodic = require './periodic'
 
@@ -18,7 +16,8 @@ window.onload = () ->
   center = new Point(view.center)
 
   tool.onMouseDown = () ->
-    null
+    
+    feather = new Feather(center, 45)
 
   i = 0
   view.onFrame = () ->
@@ -29,7 +28,6 @@ window.onload = () ->
     view.update()
 
   tool.onKeyDown = (event) ->
-    if event.key is 'g' #spawn grass
 
   tool.onMouseMove = (event) ->
     null
