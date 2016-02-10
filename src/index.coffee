@@ -17,8 +17,7 @@ window.onload = () ->
   center = new Point(view.center)
 
   tool.onMouseDown = (ev) ->
-   
-    explode(ev.point, Feather)
+    explode(ev.point, Feather) for x in [1...10]
 
   i = 0
   view.onFrame = () ->
