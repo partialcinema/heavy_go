@@ -1,6 +1,6 @@
 Feather = (center, angle) ->
 
-  item = new Path.Ellipse(
+  item = new paper.Path.Ellipse(
     center: center
     radius: [9, 4]
     fillColor: 'black'

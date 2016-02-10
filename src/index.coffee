@@ -1,6 +1,6 @@
 Feather = require './items/feather'
 motion = require './motion'
-explode = require './effects/explode'
+explosions = require './effects/explode'
 periodic = require './periodic'
 
 randomInterval = (min, max) ->
@@ -15,9 +15,10 @@ window.onload = () ->
   project.currentStyle.strokeWidth = 5
   tool = new Tool()
   center = new Point(view.center)
+  explosions.buildCache()
 
   tool.onMouseDown = (ev) ->
-    explode(ev.point, Feather) for x in [1...10]
+    explosions.explode(ev.point, Feather) for x in [1...10]
 
   i = 0
   view.onFrame = () ->
