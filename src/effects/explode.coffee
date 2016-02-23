@@ -10,7 +10,6 @@ randomDeltaAngle = new DrunkenWalk startingValue: 5 , noiseAmplitude: 10, clamp:
 
 buildCache = () ->
   makeItem = (angle) ->
-    console.log 'makin item'
     ItemConstructor = Feather
 
     center = new paper.Point 0, 0
@@ -32,8 +31,7 @@ buildCache = () ->
     item.item.data.offset = offset
     item.item.data.velocity = velocity
     itemCache.unshift item
-
-
+    item.item.visible = false
 
   angle = 0
   while angle < (360 * 15)
@@ -43,16 +41,19 @@ buildCache = () ->
 getItem = (center) ->
   item = itemCache.pop()
   if item?
-    item.position = center.add item.item.data.offset
+    item.item.position = center.add item.item.data.offset
     currentItems.unshift item
+    item.item.visible = true
 
 destroy = (item) ->
   index = currentItems.indexOf(item)
   currentItems.splice(index, 1)
   itemCache.unshift item
+  item.item.visible = false
 
 explode = (center, ItemConstructor) ->
   move = (item) ->
+    return unless item?
     item.item.translate(item.item.data.velocity)
     unless view.bounds.intersects(item.item.bounds)
       destroy item
@@ -64,8 +65,7 @@ explode = (center, ItemConstructor) ->
   while n < 50
     getItem(center)
     n += 1
-  console.log currentItems.length
-  helper.schedule 30, 'feathers', moveItems
+  helper.scheduleOnce 30, 'feathers', moveItems
 
 module.exports =
   explode: explode

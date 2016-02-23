@@ -12,6 +12,11 @@ schedule = (updatesPerSecond, key, func) ->
   intervalIds[key] ?= []
   intervalIds[key].push setInterval func, millisecondsBetweenUpdates
 
+scheduleOnce = (updatesPerSecond, key) ->
+  if !intervalIds[key]
+    schedule(arguments...)
+
 module.exports =
   schedule: schedule
+  scheduleOnce: scheduleOnce
   stop: stop

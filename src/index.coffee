@@ -6,6 +6,27 @@ periodic = require './periodic'
 randomInterval = (min, max) ->
   return Math.floor(Math.random() * max) + min
 
+isNaked = false
+
+toggleOwl = ->
+  if isNaked
+    newClassName = 'visible owl1 scene'
+  else
+    newClassName = 'visible naked-owl scene'
+  document.querySelector("#owl").className = newClassName
+  isNaked = not isNaked
+
+n = 1
+
+danceState = () ->
+  n += 1
+  n = n % 4
+
+toggleOwlDance = ()->
+  newClassName = "visible owl#{danceState()} scene"
+  document.querySelector("#owl").className = newClassName
+
+
 window.onload = () ->
   # Set up paper.js
   paper.install window
@@ -16,9 +37,13 @@ window.onload = () ->
   tool = new Tool()
   center = new Point(view.center)
   explosions.buildCache()
+  document.querySelector("#owl").className += ' visible'
 
+  
   tool.onMouseDown = (ev) ->
-    explosions.explode(ev.point, Feather) for x in [1...10]
+    toggleOwl()
+    owlPoint = new paper.Point(view.size.width * 0.53, view.size.height * 0.57)
+    explosions.explode(owlPoint, Feather) for x in [1...20]
 
   i = 0
   view.onFrame = () ->
@@ -29,6 +54,9 @@ window.onload = () ->
     view.update()
 
   tool.onKeyDown = (event) ->
+    if event.key is 'd'
+      toggleOwlDance()
+
 
   tool.onMouseMove = (event) ->
     null
