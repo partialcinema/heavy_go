@@ -7,7 +7,6 @@ randomInterval = (min, max) ->
   return Math.floor(Math.random() * max) + min
 
 isNaked = false
-
 toggleOwl = ->
   if isNaked
     newClassName = 'visible owl1 scene'
@@ -17,14 +16,14 @@ toggleOwl = ->
   isNaked = not isNaked
 
 n = 1
-
 danceState = () ->
   n += 1
   n = n % 4
 
 toggleOwlDance = ()->
-  newClassName = "visible owl#{danceState()} scene"
-  document.querySelector("#owl").className = newClassName
+  unless isNaked
+    newClassName = "visible owl#{danceState()} scene"
+    document.querySelector("#owl").className = newClassName
 
 
 window.onload = () ->
