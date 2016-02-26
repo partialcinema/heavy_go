@@ -1,8 +1,7 @@
 intervalIds = {}
 
 unschedule = (key) ->
-  intervalIds = intervalIds[key]
-  clearInterval(id) for id in intervalIds
+  clearInterval(id) for id in intervalIds[key]
 
 schedule = (updatesPerSecond, key, func) ->
   millisecondsBetweenUpdates = 1000 / updatesPerSecond
@@ -10,7 +9,7 @@ schedule = (updatesPerSecond, key, func) ->
   intervalIds[key].push setInterval func, millisecondsBetweenUpdates
 
 scheduleOnce = (updatesPerSecond, key) ->
-  if !intervalIds[key]
+  unless intervalIds[key]
     schedule arguments...
 
 module.exports =
