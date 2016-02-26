@@ -9,22 +9,20 @@ randomInterval = (min, max) ->
 isNaked = false
 toggleOwl = ->
   if isNaked
-    newClassName = 'visible owl1 scene'
+    newBackground = "url(../img/owl/owl1.png"
   else
-    newClassName = 'visible naked-owl scene'
-  document.querySelector("#owl").className = newClassName
+    newBackground = "url(../img/owl/naked-owl.png"
+  $('#owl').css "background-image", newBackground
   isNaked = not isNaked
 
 n = 1
 danceState = () ->
   n += 1
   n = n % 4
-
 toggleOwlDance = ()->
   unless isNaked
-    newClassName = "visible owl#{danceState()} scene"
-    document.querySelector("#owl").className = newClassName
-
+    newBackground = "url(../img/owl/owl#{danceState()}.png"
+    $('#owl').css "background-image", newBackground
 
 window.onload = () ->
   # Set up paper.js
@@ -37,13 +35,11 @@ window.onload = () ->
   center = new Point(view.center)
   explosions.buildCache()
   document.querySelector("#owl").className += ' visible'
-
   
   tool.onMouseDown = (ev) ->
     toggleOwl()
     owlPoint = new paper.Point(view.size.width * 0.53, view.size.height * 0.57)
     explosions.explode(owlPoint, Feather) for x in [1...20]
-
   i = 0
   view.onFrame = () ->
     skip = (i % 2) is 0

@@ -18,45 +18,28 @@ html, body {
   pointer-events: none;
 }
 
-.owl-background {
+.background {
   background-image: url("../img/background.png");
   z-index: -2;
 }
 
-.owl0 {
-  background-image: url("../img/owl1.png");
+.owl {
+  background-image: url("../img/owl/owl1.png");
   background-color: transparent;
   opacity: 0;
   transition: opacity 1s;  
   z-index: -1;
 }
 
-.owl1 {
-  background-image: url("../img/owl2.png");
-  background-color: transparent;
-  z-index: -1;
-}
-
-.owl2 {
-  background-image: url("../img/owl3.png");
-  background-color: transparent;
-  z-index: -1;
-}
-
-.owl3 {
-  background-image: url("../img/owl4.png");
-  background-color: transparent;
-  z-index: -1;
-}
-
-.naked-owl {
-  background-image: url("../img/naked-owl.png");
-  background-color: transparent;
-  z-index: -1;
-}
-
 .visible {
   opacity: 1;
+}
+.invisible {
+  display: none;
+}
+.lightning {
+  background-image: url("../img/lightning");
+  z-index: 2;
 }
 
 canvas[resize] {
