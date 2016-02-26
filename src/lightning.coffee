@@ -19,8 +19,10 @@ update = ->
     newBackground = ''
     helper.unschedule 'lightning'
     currentFrame = 0
+    $('#lightning').css 'pointer-events', ''
   else
     newBackground = "url(../img/lightning/lightning#{currentFrame}.png"
+    $('#lightning').css 'pointer-events', 'auto'
   $('#lightning').css "background-image", newBackground
   currentFrame += 1
 

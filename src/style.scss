@@ -39,7 +39,19 @@ html, body {
 }
 
 #lightning {
+  background-size: auto 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 90%;
+  height: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
   background-color: transparent;
+  pointer-events: none;
+  border-radius: 50px;
   z-index: 2;
 }
 
