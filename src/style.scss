@@ -37,8 +37,9 @@ html, body {
 .invisible {
   display: none;
 }
-.lightning {
-  background-image: url("../img/lightning");
+
+#lightning {
+  background-color: transparent;
   z-index: 2;
 }
 

@@ -1,10 +1,7 @@
 intervalIds = {}
 
-stop = (item) ->
-  # this will only cancel the most recent animation
-  # applied to an object. how do we handle multiple
-  # animations on one object?
-  intervalIds = intervalIds[item.id]
+unschedule = (key) ->
+  intervalIds = intervalIds[key]
   clearInterval(id) for id in intervalIds
 
 schedule = (updatesPerSecond, key, func) ->
@@ -14,9 +11,9 @@ schedule = (updatesPerSecond, key, func) ->
 
 scheduleOnce = (updatesPerSecond, key) ->
   if !intervalIds[key]
-    schedule(arguments...)
+    schedule arguments...
 
 module.exports =
   schedule: schedule
   scheduleOnce: scheduleOnce
-  stop: stop
+  unschedule: unschedule

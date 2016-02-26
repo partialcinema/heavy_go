@@ -12,6 +12,6 @@ scheduleMotion = (motion, signal) ->
   startPeriodicMotion
 
 module.exports =
-  stop: helper.stop
+  unschedule: helper.unschedule
   pulse: scheduleMotion modulators.scaleBounds, signals.SawIntegral
   sway: scheduleMotion modulators.phaseSegments, signals.Sine

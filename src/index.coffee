@@ -2,6 +2,7 @@ Feather = require './items/feather'
 motion = require './motion'
 explosions = require './effects/explode'
 periodic = require './periodic'
+lightning = require './lightning'
 
 randomInterval = (min, max) ->
   return Math.floor(Math.random() * max) + min
@@ -37,9 +38,15 @@ window.onload = () ->
   document.querySelector("#owl").className += ' visible'
   
   tool.onMouseDown = (ev) ->
-    toggleOwl()
-    owlPoint = new paper.Point(view.size.width * 0.53, view.size.height * 0.57)
-    explosions.explode(owlPoint, Feather) for x in [1...20]
+    if isNaked
+      lightning.flash()
+      setTimeout toggleOwl, 500
+    else
+      owlPoint = new paper.Point(view.size.width * 0.53, view.size.height * 0.57)
+      explosions.explode(owlPoint, Feather) for x in [1...20]
+      toggleOwl()
+
+
   i = 0
   view.onFrame = () ->
     skip = (i % 2) is 0
