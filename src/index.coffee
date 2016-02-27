@@ -16,6 +16,15 @@ toggleOwl = ->
   $('#owl').css "background-image", newBackground
   isNaked = not isNaked
 
+isClear = false
+toggleBackground = ->
+  if isClear
+    newBackground = "url(../img/background.png)"
+  else
+    newBackground = "url(../img/alt-background.png)"
+  $('.background').css "background-image", newBackground
+  isClear = not isClear
+
 n = 1
 danceState = () ->
   n += 1
@@ -59,6 +68,8 @@ window.onload = () ->
     if event.key is 'd'
       toggleOwlDance()
 
+    if event.key is 'b'
+      toggleBackground()
 
   tool.onMouseMove = (event) ->
     null
