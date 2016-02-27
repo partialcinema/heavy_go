@@ -19,14 +19,15 @@ html, body {
 }
 
 .background {
-  background-image: url("../img/background.png");
+  background-image: url("../img/skyless-background.png");
   background-color: transparent;
   z-index: -2;
 }
 
 .sky {
-  background-image: url("../img/sky/all-night-dream-sowing2.jpeg");
-  z-index: -3;
+  /*background-image: url("../img/sky/grey-sky.png");*/
+  background-color: black;
+  z-index: -4;
 }
 
 .owl {
@@ -72,8 +73,9 @@ html, body {
 #psychedelic {
   background-image: url(../img/banana.gif);
   z-index: -3;
-  background-size: auto 100%;
-  background-position: 58%;
+  background-size: auto 150%;
+  background-position: 75%;
+  opacity: 0.5;
 }
 
 canvas[resize] {
