@@ -1,6 +1,6 @@
 helper = require './helper'
 
-NUMBER_OF_LIGHTNING_IMAGES = 28
+NUMBER_OF_LIGHTNING_IMAGES = 18
 # cache lightning images in dom
 loadImages = ->
   n = 0

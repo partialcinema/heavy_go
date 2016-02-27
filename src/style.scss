@@ -20,7 +20,13 @@ html, body {
 
 .background {
   background-image: url("../img/background.png");
+  opacity: 0.9;
   z-index: -2;
+}
+
+.sky {
+  background-image: url("../img/sky/all-night-dream-sowing2.jpeg");
+  z-index: -3;
 }
 
 .owl {
@@ -43,6 +49,11 @@ html, body {
   background-position: center center;
   background-repeat: no-repeat;
   background-color: transparent;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
   pointer-events: none;
   z-index: 2;
 }
@@ -52,10 +63,6 @@ html, body {
   z-index: 3;
 }
 
-#psych-background {
-  background-image: url(../img/alt-background.png);
-  z-index: -3;
-}
 
 canvas[resize] {
   width: 100%;
