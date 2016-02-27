@@ -20,6 +20,7 @@ html, body {
 
 .background {
   background-image: url("../img/background.png");
+  background-color: transparent;
   z-index: -2;
 }
 
@@ -39,22 +40,30 @@ html, body {
 }
 
 #lightning {
-  background-size: auto 100%;
+  background-size: auto 90%;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: transparent;
   pointer-events: none;
   z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 #letterbox {
   background-image: url("../img/letterbox.png");
+  background-color: transparent;
   z-index: 3;
 }
 
-#psych-background {
-  background-image: url(../img/alt-background.png);
+#psychedelic {
+  background-image: url(../img/banana.gif);
   z-index: -3;
+  background-size: auto 100%;
+  background-position: 58%;
 }
 
 canvas[resize] {
