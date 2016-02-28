@@ -21,7 +21,7 @@ toggleBackground = ->
   if isClear
     newBackground = "url(../img/background.png)"
   else
-    newBackground = "url(../img/alt-background.png)"
+    newBackground = "url(../img/skyless-background.png)"
   $('.background').css "background-image", newBackground
   isClear = not isClear
 
@@ -50,10 +50,12 @@ window.onload = () ->
     if isNaked
       lightning.flash()
       setTimeout toggleOwl, 500
+      #setTimeout toggleBackground, 500
     else
       owlPoint = new paper.Point(view.size.width * 0.53, view.size.height * 0.57)
       explosions.explode(owlPoint, Feather) for x in [1...20]
       toggleOwl()
+      #toggleBackground()
 
 
   i = 0
