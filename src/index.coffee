@@ -77,4 +77,5 @@ window.onload = () ->
       toggleBackground()
 
   tool.onMouseMove = (event) ->
+    #TESTING SSH
     null
