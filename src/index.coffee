@@ -3,6 +3,7 @@ motion = require './motion'
 explosions = require './effects/explode'
 periodic = require './periodic'
 lightning = require './lightning'
+skull = require './skull'
 
 randomInterval = (min, max) ->
   return Math.floor(Math.random() * max) + min
@@ -53,6 +54,7 @@ window.onload = () ->
       #setTimeout toggleBackground, 500
     else
       owlPoint = new paper.Point(view.size.width * 0.53, view.size.height * 0.57)
+      skull.spawn ev.point, owlPoint
       explosions.explode(owlPoint, Feather) for x in [1...20]
       toggleOwl()
       #toggleBackground()

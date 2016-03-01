@@ -25,7 +25,7 @@ html, body {
 }
 
 .sky {
-  /*background-image: url("../img/sky/grey-sky.png");*/
+  background-image: url("../img/sky/grey-sky.png");
   background-color: black;
   z-index: -4;
 }
@@ -74,8 +74,8 @@ html, body {
   background-image: url(../img/banana.gif);
   z-index: -3;
   background-size: auto 150%;
-  background-position: 65%;
-  opacity: 0.5;
+  background-position: 75%;
+  opacity: 0.2;
 }
 
 canvas[resize] {
