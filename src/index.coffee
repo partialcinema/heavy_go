@@ -78,5 +78,3 @@ window.onload = () ->
 
   tool.onMouseMove = (event) ->
     null
-
-#poop. Testing SSH.
