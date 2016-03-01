@@ -3,6 +3,7 @@ motion = require './motion'
 explosions = require './effects/explode'
 periodic = require './periodic'
 lightning = require './lightning'
+owl = require './owl'
 skull = require './skull'
 
 randomInterval = (min, max) ->

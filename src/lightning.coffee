@@ -1,17 +1,7 @@
 helper = require './helper'
-
+load = require './load'
 NUMBER_OF_LIGHTNING_IMAGES = 18
-# cache lightning images in dom
-loadImages = ->
-  n = 0
-  while n <= NUMBER_OF_LIGHTNING_IMAGES
-    img = document.createElement "img"
-    img.src = "../img/lightning/lightning#{n}.png"
-    body = $('body')[0]
-    body.appendChild img
-    n += 1
-
-$ loadImages
+load.images 'lightning', NUMBER_OF_LIGHTNING_IMAGES
 
 currentFrame = 0
 update = ->
